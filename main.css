@@ -1,0 +1,1004 @@
+body {
+  background: linear-gradient(to bottom, #f8fafc 0%, #e8eef5 100%);
+  color: #222;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+}
+section {
+  background-color: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  margin-bottom: 25px;
+}
+/* ===== CABECERA MODERNA CON IMAGEN DE FONDO DIFUMINADA ===== */
+header {
+  position: relative;
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+  overflow: hidden;
+  border-bottom: 3px solid #004c70;
+  margin-bottom: 20px;
+}
+
+/* Imagen de fondo que ocupa todo el header */
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("fondo.PNG"); /* Cambiar imagen cabecera aquí */
+  background-size: cover;
+  background-position: center;
+  filter: blur(6px) brightness(0.6);
+  transform: scale(1.1); /* un pelín más grande para evitar bordes */
+  z-index: 0;
+}
+
+/* Capa semitransparente azul encima del blur */
+header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0,60,100,0.7), rgba(0,100,180,0.3));
+  z-index: 1;
+}
+
+/* Contenedor principal */
+.header-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Foto visible sin blur, flotando sobre el fondo */
+.foto-marco {
+  border-radius: 12px;
+  overflow: hidden;
+  width: 160px;
+  height: 160px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  border: 3px solid white;
+}
+
+.foto-perfil {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+   object-position: center 30%; /*mueve la imagen ligeramente hacia abajo */
+}
+
+.info-header {
+  color: white;
+}
+
+.info-header h1 {
+  font-size: 2.1em;
+  margin: 0;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.info-header h2 {
+  font-size: 1.2em;
+  font-weight: 500;
+  color: #cce5ff;
+  margin: 6px 0;
+}
+
+.info-header .subtitulo {
+  color: #e0e0e0;
+  font-size: 0.95em;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+/* ===== MENÚ DE NAVEGACIÓN ===== */
+nav {
+  position: relative;
+  z-index: 2;
+  background-color: rgba(255,255,255,0.9);
+  text-align: center;
+  padding: 10px 0;
+  border-top: 1px solid #004c70;
+}
+
+nav a {
+  text-decoration: none;
+  color: #004c70;
+  font-weight: 600;
+  margin: 0 10px;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  color: white;
+  background-color: #004c70;
+  border-radius: 5px;
+  padding: 4px 8px;
+}
+
+
+/* === BLOQUES DESPLEGABLES === */
+
+details {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin: 12px 0;
+  padding: 10px 14px;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+summary {
+  list-style: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.05em;
+  color: #002a41;
+  position: relative;
+  padding-left: 0;
+  transition: color 0.3s ease;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary:hover {
+  color: #0077cc;
+}
+/* Descripción inicial */
+details p em {
+  display: block;
+  background-color: #f7faff;
+  padding: 6px 10px;
+  border-left: 4px solid #0077cc;
+  border-radius: 4px;
+  font-style: italic;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+/* === COLORES POR CATEGORÍA === */
+
+/* Formación */
+details.grado[open] {
+  background: linear-gradient(to right, #f5c79c73, #5862ebdc);
+  border-left: 4px solid #ffb347;
+}
+
+details.master[open] {
+  background: linear-gradient(to right, #ccccccad, #005f9922);
+  border-left: 4px solid #005f99;
+}
+
+details.asir[open] {
+  background: linear-gradient(to right, #467ca01f, #6ab7ff33);
+  border-left: 4px solid #6ab7ff;
+}
+
+/* Experiencia */
+details.dpb[open] {
+  background: linear-gradient(to right, #cececed2, #d4d4d4dc);
+  border-left: 4px solid #949494;
+}
+details.clece[open] {
+  background: linear-gradient(to right, #cececed2, #d9d9d94d);
+  border-left: 4px solid #bfbfbf;
+}
+
+details.bufete[open] {
+  background: linear-gradient(to right, #52829e, #a7e4e933);
+  border-left: 4px solid #536af0;
+}
+
+details.temps[open] {
+  background: linear-gradient(to right, #ff761a, #ff7b0033);
+  border-left: 4px solid #ff7b00;
+}
+
+details.ofg[open] {
+  background: linear-gradient(to right, #eaf0f6, #1559be33);
+  border-left: 4px solid #4a6fa5;
+}
+
+details.fl[open] {
+  background: linear-gradient(to right, #f2f2f2, #3d3fcaa4);
+  border-left: 4px solid #939fe0d0;
+}
+
+/* Interior de cada bloque */
+details ul {
+  margin: 10px 0 5px 20px;
+  padding: 0;
+}
+
+details ul li {
+  line-height: 1.5em;
+  margin-bottom: 4px;
+  color: #333;
+}
+
+details[open] {
+  transform: scale(1.01);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+/* === EFECTO HOVER EN BLOQUES DESPLEGABLES === */
+details:hover {
+  transform: scale(1.01);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.6);
+  transition: all 0.35s ease;
+}
+
+/* Color de texto y fondo suave al pasar el ratón */
+details:hover summary {
+  color: #002e4b;
+}
+
+details:hover {
+  background-color: #f9fbff;
+}
+/* === EFECTO DE ILUMINACIÓN AL ENTRAR A UNA SECCIÓN === */
+section {
+  scroll-margin-top: 140px; /* para que no quede escondido detrás del header */
+}
+
+/* Al hacer clic en el menú y llegar a una sección */
+section:target {
+  animation: iluminar 2s ease-in-out;
+}
+
+/* Animación de parpadeo suave */
+@keyframes iluminar {
+  0% {
+    background-color: #e9e9e8; /* inicio, tono cálido */
+  }
+  50% {
+    background-color: #f3f3f3; /* se ilumina en azul claro */
+  }
+  100% {
+    background-color: transparent; /* vuelve a normal */
+  }
+}
+/* ==== IMAGEN DIFUMINADA A LA DERECHA DE CADA DESPLEGABLE ==== */
+details {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ==== IMÁGENES QUE SOLO APARECEN AL ABRIR EL DESPLEGABLE ==== */
+details::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: blur(4px) brightness(0.9);
+  opacity: 0; /* oculto por defecto */
+  z-index: 0;
+
+  mask-image: linear-gradient(to left, rgba(0,0,0,1) 80%, rgba(0,0,0,0));
+  -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 80%, rgba(0,0,0,0));
+  border-radius: 0 10px 10px 0;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+details[open]::before {
+  opacity: 0.75; /* visible solo cuando está abierto */
+  transform: scale(1.02);
+}
+
+details {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), inset 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+details > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* === IMÁGENES PERSONALIZADAS SEGÚN LA CLASE === */
+details.grado::before {
+  background-image: url("Logo_UCO.png");
+}
+
+details.master::before {
+  background-image: url("0x0.png");
+}
+
+details.asir::before {
+  background-image: url("digitech.png");
+}
+/* ==== IMAGEN DIFUMINADA A LA DERECHA (EXPERIENCIA) ==== */
+/* ==== IMAGEN DIFUMINADA A LA DERECHA (EXPERIENCIA) ==== */
+details.dpb,
+details.clece,
+details.bufete,
+details.temps,
+details.ofg,
+details.fl {
+  position: relative;
+  overflow: hidden;
+  border-radius: 9px;
+  background-color: #fff;
+  margin-bottom: 18px;
+  padding: 15px 20px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+
+/*details.clece:hover::before,
+details.bufete:hover::before,     Esto es para poner las imagenes en el hover y queda de pena
+details.temps:hover::before,
+details.ofg:hover::before,
+details.fl:hover::before {
+  opacity: 0.9;
+}*/
+
+details.clece > *,
+details.bufete > *,
+details.temps > *,
+details.ofg > *,
+details.fl > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* === IMÁGENES SEGÚN EMPRESA === */
+details.dpb::before {
+  background-image: url("dpb.png");
+  background-size: 800px;
+  background-position:right 540px;
+  filter: blur(2px) brightness(0.85);
+}
+details.clece::before {
+  background-image: url("clece.png");
+  background-size:cover;
+  background-position:bottom;
+  filter: blur(1px) brightness(0.85);
+}
+
+details.bufete::before {
+  background-image: url("bufete.PNG");
+}
+
+details.temps::before {
+  background-image: url("temps.jpg");
+}
+
+details.ofg::before {
+  background-image: url("ofg.PNG");
+}
+
+details.fl::before {
+  background-image: url("fl.PNG");
+    filter: blur(1px) brightness(0.85);
+
+}
+html {
+  scroll-behavior:smooth;
+}
+/* Transición suave de apertura de los desplegables */
+details > *:not(summary) {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.6s ease;
+}
+
+details[open] > *:not(summary) {
+  opacity: 1;
+  max-height: 800px; /* suficiente para el contenido */
+  padding-top: 10px;
+}
+/* ============ PÁGINA DEL CV ================ */
+
+.header-cv {
+  position: relative;
+  height: 140px; /* más compacta */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  overflow: hidden;
+  border-bottom: 3px solid #004c70;
+  margin-bottom: 30px;
+}
+
+/* Fondo discreto */
+.header-cv::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("fondo.PNG"); /* o una imagen tipo fondo azul */
+  background-size: cover;
+  background-position: center;
+  filter: blur(7px) brightness(0.6);
+  transform: scale(1.05);
+  z-index: 0;
+}
+
+/* Capa azul más ligera */
+.header-cv::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0,60,100,0.6), rgba(0,100,180,0.2));
+  z-index: 1;
+}
+
+.cv-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  background: linear-gradient(to bottom, #f8fafc 0%, #e8eef5 100%);
+  padding: 40px 20px;
+}
+
+.cv-container {
+  text-align: center;
+  position: relative;
+}
+
+.cv-imagen {
+  width: 80%;
+  max-width: 800px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Efecto zoom al pasar el ratón */
+.cv-imagen:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+}
+
+.boton-descarga {
+  position: absolute;
+  top: 15px;          /* sube el botón */
+  right: -3cm;        /* lo desplaza a la derecha */
+  padding: 15px 20px;
+  background-color: #004c70;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.boton-descarga:hover {
+  background-color: #005b9c;
+  transform: translateY(-2px);
+}
+footer {
+  text-align: center;
+  padding: 15px;
+  background-color: rgba(0, 76, 112, 0.95);
+  color: white;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1em;
+  padding: 10px 18px;
+  border: 2px solid #004c70;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+footer a:hover {
+  background-color: #004c70d5;
+  opacity:initial;
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+
+/*ESTO ES PARA QUE LA IMAGEN SE VEA MÁS FLUIDA*/
+.cv-imagen {
+  animation: aparecer 0.3s ease;  
+}
+
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+
+/* ==================== CABECERA REDUCIDA PARA PÁGINAS SECUNDARIAS (CV, CONTACTO, ETC.) =============== */
+.header-secundaria {
+  position: relative;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  overflow: hidden;
+  border-bottom: 3px solid #004c70;
+  margin-bottom: 30px;
+}
+
+/* Fondo difuminado igual que el del CV */
+.header-secundaria::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("fondo.PNG"); /* o la misma del CV si prefieres */
+  background-size: cover;
+  background-position: center;
+  filter: blur(5px) brightness(0.7);
+  transform: scale(1.05);
+  z-index: 0;
+}
+
+/* Capa azul transparente */
+.header-secundaria::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0,60,100,0.6), rgba(0,100,180,0.2));
+  z-index: 1;
+}
+
+/* Texto */
+.header-secundaria .info-header {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.header-secundaria h1 {
+  font-size: 1.9em;
+  font-weight: 700;
+  margin: 0;
+  color: #ffffff;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+/* ================================ PÁGINA DE CONTACTO ================================ */
+
+.contacto-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 15px;
+  background: linear-gradient(to bottom, #f8fafc, #e8eef5);
+  min-height: 80vh;
+}
+
+/* --- Tarjeta de información --- */
+.contacto-info {
+  background-color: #ffffff;
+  padding: 30px 40px;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 600px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contacto-info:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
+}
+
+.contacto-info h2 {
+  color: #004c70;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.contacto-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contacto-info li {
+  font-size: 1.1em;
+  margin: 10px 0;
+  color: #00395a;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.contacto-info a {
+  color: #0077cc;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contacto-info a:hover {
+  color: #004c70;
+}
+
+/* --- Tarjeta del formulario --- */
+.formulario-contacto {
+  background-color: #ffffff;
+  padding: 40px 50px;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 600px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.formulario-contacto:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
+}
+
+.formulario-contacto h2 {
+  color: #004c70;
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 1.4em;
+  font-weight: 700;
+}
+
+/* --- Campos del formulario --- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+form label {
+  font-weight: 600;
+  color: #00395a;
+}
+
+form input,
+form textarea {
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 1em;
+  transition: all 0.3s ease;
+  background-color: #f9fafb;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: #0077cc;
+  box-shadow: 0 0 8px rgba(0, 119, 204, 0.3);
+  background-color: #ffffff;
+  outline: none;
+}
+
+/* --- Botón de envío --- */
+#btn-enviar {
+  background-color: #004c70;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.05em;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#btn-enviar:hover {
+  background-color: #0077cc;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 119, 204, 0.3);
+}
+
+/* --- Estado del envío --- */
+#estado-envio {
+  text-align: center;
+  font-weight: 600;
+  margin-top: 15px;
+}
+
+/* --- Footer coherente --- */
+footer a {
+  font-size: 1.1em;
+  padding: 10px 18px;
+  background-color: #004c70;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+footer a:hover {
+  background-color: #0077cc;
+  transform: scale(1.05);
+}
+/* ----- SECCIONES GENERALES ----- */
+section {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  padding: 25px 30px;
+  margin-bottom: 25px;
+  transition: box-shadow 0.3s ease;
+}
+
+section:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* ----- TITULOS DE SECCIÓN ----- */
+section h2 {
+  font-size: 1.4em;
+  color: #1f3c5a;
+  font-weight: 600;
+  border-left: 4px solid #06386d;
+  padding-left: 10px;
+  margin-bottom: 15px;
+  letter-spacing: 0.3px;
+}
+
+/* ----- TEXTO DE "SOBRE MÍ" ----- */
+#sobre-mi p {
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* Pequeño acento azul en palabras clave */
+#sobre-mi strong {
+  color: #2c6db2;
+  font-weight: 600;
+}
+
+/* ----- LISTAS DE "OTROS DATOS" ----- */
+#otros ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#otros li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+#otros li::before {
+  content: "• ";
+  color: #2c6db2;
+  font-weight: bold;
+}
+
+/* Enfatiza títulos en negrita */
+#otros li strong {
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+
+/* =======================================================
+   📱 VERSIÓN MÓVIL — AJUSTES GENERALES (máx. 768px)
+   ======================================================= */
+@media (max-width: 768px) {
+
+  /* 🔹 Cabecera más compacta */
+  .header-container {
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    text-align: center;
+  }
+
+  .foto-marco {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 10px;
+  }
+
+  .foto-perfil {
+    object-position: center 20%; /* evita cortar la cabeza */
+  }
+
+  .info-header h1 {
+    font-size: 1.6em;
+  }
+
+  .info-header h2 {
+    font-size: 1.1em;
+  }
+
+  /* 🔹 Botón del menú (hamburguesa) más visible y más abajo */
+  .menu-toggle {
+    display: block;
+    margin-top: 10px;
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #004c70;
+  }
+
+  /* 🔹 Menú desplegable con mejor posición */
+  nav {
+    position: relative;
+    z-index: 20;
+  }
+
+  .menu-links {
+    display: none;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-top: 2px solid #004c70;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 100%;
+  }
+
+  .menu-links.show {
+    display: flex;
+  }
+
+  .menu-links a {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #e6eef3;
+  }
+
+  /* 🔹 Ocultar imágenes decorativas de experiencia y formación */
+  details::before {
+    display: none !important;
+  }
+
+  /* 🔹 Ajuste del espaciado general de las secciones */
+  section {
+    padding: 15px 10px;
+    margin: 10px;
+  }
+
+  /* 🔹 Ajuste tipográfico para legibilidad en pantallas pequeñas */
+  body {
+    font-size: 0.95em;
+    line-height: 1.5;
+  }
+
+  /* 🔹 Evitar que las imágenes grandes se deformen */
+  .cv-imagen {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+}
+/* ==== Ajuste de menú para móvil sin superposición ==== */
+@media (max-width: 768px) {
+  nav {
+    position: relative;
+    margin-top: 10px;           /* separa el menú de la cabecera */
+    z-index: 2;                 /* asegura que quede debajo de la foto o header */
+  }
+
+  nav a {
+    display: block;             /* apila los enlaces verticalmente */
+    margin: 6px 0;
+    padding: 8px 0;
+    font-size: 1.05em;
+    background-color: #ffffff;  /* fondo blanco para contraste */
+    border-radius: 6px;
+    color: #004c70;
+  }
+
+  nav a:hover {
+    background-color: #004c70;
+    color: white;
+  }
+
+  /* Ajuste del header en pantallas pequeñas */
+  header {
+    height: auto;               /* permite que la altura se adapte */
+    padding-bottom: 15px;
+  }
+
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .foto-marco {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 8px;
+  }
+
+  .info-header h1 {
+    font-size: 1.6em;
+  }
+
+  .info-header h2 {
+    font-size: 1.1em;
+  }
+}
+/* ===== Ajuste visual del menú en móvil ===== */
+@media (max-width: 768px) {
+
+  /* 🔹 Solo afecta al menú, no a toda la página */
+  nav { 
+    font-size: 0; /* hace invisibles las barras entre enlaces en móvil */
+    border-top: 1px solid rgba(0, 76, 112, 0.25);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    background: transparent;
+    padding-bottom: 8px;
+  }
+
+  /* 🔹 Restablece tamaño dentro del menú */
+  nav a {
+    font-size: 1.05rem;
+    display: block;
+    width: 90%;
+    margin: 8px auto;
+    padding: 10px 0;
+    text-align: center;
+    background: #fff;
+    border: none;
+    border-radius: 8px;
+    color: #004c70;
+    font-weight: 600;
+    transition: background-color 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  /* 🔹 Hover sutil sin encogimiento */
+  nav a:hover {
+    background: #005b9c;
+    color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 76, 112, 0.25);
+    transform: none;
+    padding: 10px 0;
+  }
+
+  /* 🔹 Oculta pseudo-elementos solo en los enlaces del menú */
+  nav a::before,
+  nav a::after {
+    content: none !important;
+  }
+
+  /* 🔹 Restaura tamaño normal del texto fuera del menú */
+  section, details, ul, li, p {
+    font-size: initial;
+  }
+
+  /* 🔹 Asegura que los bullets / guiones vuelvan a mostrarse */
+  ul {
+    list-style: disc !important;
+    margin-left: 20px;
+  }
+}
+/* === Restaurar viñetas en los desplegables (Experiencia/Formación) === */
+details ul {
+  list-style: disc outside !important;   /* vuelve a poner los bullets */
+  padding-left: 1.25rem;                 /* espacio para que se vean */
+  margin-left: 0;                        /* evita dobles sangrías */
+}
+
+details ul li {
+  display: list-item;                    /* por si alguna regla los dejó como block */
+}
+
+details ul li::marker {
+  color: #004c70;                        /* color azul corporativo del bullet */
+  font-size: 1.05em;                     /* un pelín más grande y visible */
+}

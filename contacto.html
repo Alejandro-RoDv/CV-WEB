@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto - Alejandro Ros Ortiz</title>
+  <link rel="stylesheet" href="secondary.css">
+
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>
+    (function() {
+      emailjs.init("jyMfRBC9xXAo6nUVx"); // 👉 cambia esto cuando configures tu cuenta EmailJS
+    })();
+  </script>
+</head>
+
+<body>
+  <!-- CABECERA REDUCIDA (igual que la del CV) -->
+  <header class="header-secundaria">
+    <div class="info-header">
+      <h1></h1>
+    </div>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="contacto-main">
+    <!-- SECCIÓN DATOS -->
+    <section class="contacto-info">
+      <h2>Datos de contacto</h2>
+      <ul>
+        <li>📧 <a href="mailto:alejandro194ro@gmail.com">alejandro194ro@gmail.com</a></li>
+        <li>📞 638 44 31 25</li>
+        <li>🌐 <a href="https://www.linkedin.com/in/alejandro-ros-ortiz-822595287/" target="_blank">LinkedIn</a></li>
+      </ul>
+    </section>
+
+    <!-- SECCIÓN FORMULARIO -->
+    <section class="formulario-contacto">
+      <h2>Contacta conmigo</h2>
+
+      <form id="contact-form">
+        <label>Nombre</label>
+        <input type="text" name="nombre" placeholder="Tu nombre" required>
+
+        <label>Correo electrónico</label>
+        <input type="email" name="email" placeholder="tucorreo@ejemplo.com" required>
+
+        <label>Mensaje</label>
+        <textarea name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+
+        <button type="submit" id="btn-enviar">Enviar mensaje</button>
+      </form>
+
+      <p id="estado-envio"></p>
+    </section>
+  </main>
+
+  <!-- PIE DE PÁGINA -->
+  <footer>
+    <a href="portada.html">← Volver al inicio</a>
+  </footer>
+
+  <!-- SCRIPT DE ENVÍO -->
+  <script>
+    // ==== Envío con EmailJS ====
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      emailjs.sendForm('service_udqtuxt', 'template_lq8tvgb', this)
+        .then(() => {
+          document.getElementById('estado-envio').textContent = "✅ Mensaje enviado. Pronto recibirás una respuesta.";
+          document.getElementById('estado-envio').style.color = "green";
+          this.reset();
+        }, (error) => {
+          document.getElementById('estado-envio').textContent = "❌ Error al enviar el mensaje. Inténtalo de nuevo.";
+          document.getElementById('estado-envio').style.color = "red";
+          console.error("Error:", error);
+        });
+    });
+  </script>
+</body>
+</html>
