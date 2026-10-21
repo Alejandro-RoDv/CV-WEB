@@ -7,9 +7,10 @@
   <title>Laboratorio IT | Alejandro Ros Ortiz</title>
   <link rel="stylesheet" href="main.css">
   <link rel="stylesheet" href="portafolio.css">
+  <link rel="stylesheet" href="site-header.css">
 </head>
 <body class="portfolio-page">
-  <header>
+  <header class="site-header">
     <div class="header-container">
       <div class="foto-marco">
         <img src="foto.PNG" alt="Foto de Alejandro Ros Ortiz" class="foto-perfil">
@@ -20,13 +21,13 @@
         <p class="subtitulo">Administración de sistemas y aplicaciones empresariales</p>
       </div>
     </div>
-    <nav>
-      <a href="index.html#sobre-mi">Sobre mí</a> |
-      <a href="index.html#formacion">Formación</a> |
-      <a href="index.html#experiencia">Experiencia</a> |
-      <a href="index.html#otros">Otros datos</a> |
-      <a href="portafolio.html" aria-current="page">Portafolio</a> |
-      <a href="contacto.html">Contacto</a> |
+    <nav aria-label="Navegación principal">
+      <a href="index.html#sobre-mi">Sobre mí</a>
+      <a href="index.html#formacion">Formación</a>
+      <a href="index.html#experiencia">Experiencia</a>
+      <a href="index.html#otros">Otros datos</a>
+      <a href="portafolio.html" aria-current="page">Portafolio</a>
+      <a href="contacto.html">Contacto</a>
       <a href="cv.html">Ver CV</a>
     </nav>
   </header>
@@ -42,7 +43,7 @@
       <p>La infraestructura utiliza un router MikroTik RB5009 como equipo principal y un switch CRS326 para distribuir las conexiones. La red está segmentada por funciones mediante VLAN y reglas de cortafuegos.</p>
       <div class="resumen-red">Internet → Router del operador → MikroTik RB5009 → Switch CRS326 → Equipos y servicios</div>
       <figure class="diagrama-pendiente">
-        <img class="diagrama-imagen" src="homelab/diagrama_red.png" alt="Diagrama de la topología y segmentación del laboratorio de redes" loading="lazy">
+        <button type="button" class="ampliar-imagen" aria-label="Ampliar diagrama de la red"><img class="diagrama-imagen" src="homelab/diagrama_red.png" alt="Diagrama de la topología y segmentación del laboratorio de redes" loading="lazy"></button>
         <figcaption>Topología del laboratorio de redes.</figcaption>
       </figure>
       <h3>Segmentación</h3>
@@ -87,12 +88,12 @@
       <h2>Fotografías</h2>
       <p>Imágenes del montaje y de los servicios del laboratorio.</p>
       <div class="galeria">
-        <figure><img src="homelab/foto_frente.jpg" alt="Vista frontal del rack" loading="lazy"><figcaption>Vista frontal del rack</figcaption></figure>
-        <figure><img src="homelab/foto_switch.jpg" alt="Switch CRS326 y cableado" loading="lazy"><figcaption>Switch y cableado</figcaption></figure>
-        <figure><img src="homelab/foto_routermikrotik.jpg" alt="Router MikroTik RB5009" loading="lazy"><figcaption>Router RB5009</figcaption></figure>
-        <figure><img src="homelab/foto_raspberry.jpg" alt="Raspberry Pi del laboratorio" loading="lazy"><figcaption>Servidores Raspberry Pi</figcaption></figure>
-        <figure><img src="homelab/foto_punto_acceso.jpg" alt="Punto de acceso inalámbrico" loading="lazy"><figcaption>Red inalámbrica</figcaption></figure>
-        <figure><img src="homelab/foto_monitorizacion.jpg" alt="Panel de monitorización del laboratorio" loading="lazy"><figcaption>Monitorización</figcaption></figure>
+        <figure><button type="button" class="ampliar-imagen" aria-label="Ampliar Vista frontal del rack"><img src="homelab/foto_frente.jpg" alt="Vista frontal del rack" loading="lazy"></button><figcaption>Vista frontal del rack</figcaption></figure>
+        <figure><button type="button" class="ampliar-imagen" aria-label="Ampliar Switch CRS326 y cableado"><img src="homelab/foto_switch.jpg" alt="Switch CRS326 y cableado" loading="lazy"></button><figcaption>Switch y cableado</figcaption></figure>
+        <figure><button type="button" class="ampliar-imagen" aria-label="Ampliar Router MikroTik RB5009"><img src="homelab/foto_routermikrotik.jpg" alt="Router MikroTik RB5009" loading="lazy"></button><figcaption>Router RB5009</figcaption></figure>
+        <figure><button type="button" class="ampliar-imagen" aria-label="Ampliar Raspberry Pi del laboratorio"><img src="homelab/foto_raspberry.jpg" alt="Raspberry Pi del laboratorio" loading="lazy"></button><figcaption>Servidores Raspberry Pi</figcaption></figure>
+        <figure><button type="button" class="ampliar-imagen" aria-label="Ampliar Punto de acceso inalámbrico"><img src="homelab/foto_punto_acceso.jpg" alt="Punto de acceso inalámbrico" loading="lazy"></button><figcaption>Red inalámbrica</figcaption></figure>
+        <figure><button type="button" class="ampliar-imagen" aria-label="Ampliar Panel de monitorización del laboratorio"><img src="homelab/foto_monitorizacion.jpg" alt="Panel de monitorización del laboratorio" loading="lazy"></button><figcaption>Monitorización</figcaption></figure>
       </div>
     </section>
 
@@ -109,8 +110,19 @@
     </section>
   </main>
 
+  <dialog id="visor-imagen" class="visor-imagen" aria-label="Imagen ampliada">
+    <button type="button" class="visor-cerrar" aria-label="Cerrar imagen">×</button>
+    <img id="visor-foto" alt="">
+    <div class="visor-pie">
+      <p id="visor-descripcion"></p>
+      <a id="visor-original" href="#" target="_blank" rel="noopener noreferrer">Ver tamaño original ↗</a>
+    </div>
+  </dialog>
+
+
   <footer>
     <p>© 2026 Alejandro Ros Ortiz</p>
   </footer>
+  <script src="galeria.js"></script>
 </body>
 </html>
