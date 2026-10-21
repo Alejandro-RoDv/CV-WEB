@@ -1,8 +1,5 @@
-/* Cabecera compartida en las cuatro páginas.
-   Sticky: permanece visible al desplazarse sin tapar el contenido. */
-html {
-  scroll-padding-top: 155px;
-}
+/* Cabecera compartida: recupera la presencia visual del diseño original,
+   manteniendo la cabecera y la navegación visibles al desplazarse. */
 header.site-header {
   position: sticky;
   top: 0;
@@ -15,6 +12,7 @@ header.site-header {
   overflow: hidden;
   border-bottom: 3px solid #004c70;
 }
+
 header.site-header .header-container {
   position: relative;
   z-index: 2;
@@ -22,49 +20,61 @@ header.site-header .header-container {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  max-width: 1000px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1100px;
+  min-height: 210px;
   margin: 0 auto;
-  padding: 10px 18px;
-  gap: 16px;
+  padding: 22px 24px;
+  gap: 28px;
   text-align: left;
 }
+
 header.site-header .foto-marco {
   display: block;
-  flex: 0 0 72px;
-  width: 72px;
-  height: 72px;
+  flex: 0 0 150px;
+  width: 150px;
+  height: 150px;
   margin: 0;
-  border: 2px solid rgba(255,255,255,.9);
-  border-radius: 8px;
+  border: 3px solid #fff;
+  border-radius: 12px;
+  overflow: hidden;
 }
+
 header.site-header .foto-perfil {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center 25%;
 }
+
 header.site-header .info-header {
   text-align: left;
 }
+
 header.site-header .info-header h1 {
-  font-size: 1.45rem;
-  line-height: 1.25;
-  margin: 0 0 4px;
+  font-size: 2.1rem;
+  line-height: 1.2;
+  margin: 0 0 9px;
 }
+
 header.site-header .info-header h2 {
-  font-size: .93rem;
-  line-height: 1.3;
+  font-size: 1.15rem;
+  line-height: 1.4;
   margin: 0;
   padding: 0;
   border: 0;
   letter-spacing: 0;
   color: #cce5ff;
 }
+
 header.site-header .info-header .subtitulo {
-  margin: 5px 0 0;
-  font-size: .8rem;
-  line-height: 1.35;
+  margin: 9px 0 0;
+  font-size: .98rem;
+  line-height: 1.45;
 }
+
 header.site-header nav {
   position: relative;
   z-index: 2;
@@ -73,29 +83,30 @@ header.site-header nav {
   align-items: center;
   justify-content: center;
   flex-wrap: nowrap;
-  gap: 3px;
+  box-sizing: border-box;
+  gap: 6px;
   width: 100%;
   margin: 0;
-  padding: 6px 10px;
-  box-sizing: border-box;
+  padding: 8px 14px;
   overflow-x: auto;
-  background: rgba(255,255,255,.94);
+  background: rgba(255,255,255,.96);
   border-top: 1px solid rgba(0,76,112,.35);
   box-shadow: none;
-  font-size: .9rem;
+  font-size: 1rem;
   scrollbar-width: thin;
 }
+
 header.site-header nav a {
   display: inline-block;
   flex: 0 0 auto;
   width: auto;
   max-width: none;
   margin: 0;
-  padding: 6px 10px;
+  padding: 7px 13px;
   color: #004c70;
   background: transparent;
   border: 0;
-  border-radius: 5px;
+  border-radius: 6px;
   box-shadow: none;
   font-size: inherit;
   font-weight: 600;
@@ -104,6 +115,7 @@ header.site-header nav a {
   text-decoration: none;
   transition: background-color .2s ease, color .2s ease;
 }
+
 header.site-header nav a:hover,
 header.site-header nav a:focus-visible,
 header.site-header nav a[aria-current="page"] {
@@ -112,21 +124,50 @@ header.site-header nav a[aria-current="page"] {
   transform: none;
   box-shadow: none;
 }
+
 header.site-header nav a:focus-visible {
   outline: 2px solid #004c70;
   outline-offset: 1px;
 }
+
 header.site-header nav a::before,
 header.site-header nav a::after {
   content: none;
 }
-header.site-header nav .menu-toggle {
-  display: none;
+
+/* En Contacto, la barra decorativa debe acompañar al título,
+   no quedarse en el extremo izquierdo mientras el texto se centra. */
+.contacto-main .contacto-info h2,
+.contacto-main .formulario-contacto h2 {
+  text-align: left;
+  border-left: 4px solid #06386d;
+  padding-left: 12px;
 }
-@media (max-width: 768px) {
-  html {
-    scroll-padding-top: 140px;
+
+/* Compensar la cabecera sticky al navegar a las secciones. */
+main section[id] {
+  scroll-margin-top: 280px;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  header.site-header .header-container {
+    min-height: 175px;
+    gap: 22px;
+    padding: 18px 22px;
   }
+  header.site-header .foto-marco {
+    flex-basis: 125px;
+    width: 125px;
+    height: 125px;
+  }
+  header.site-header .info-header h1 { font-size: 1.85rem; }
+  header.site-header .info-header h2 { font-size: 1.05rem; }
+  header.site-header nav { font-size: .92rem; gap: 2px; }
+  header.site-header nav a { padding: 7px 10px; }
+  main section[id] { scroll-margin-top: 240px; }
+}
+
+@media (max-width: 768px) {
   header.site-header {
     height: auto;
     padding: 0;
@@ -135,30 +176,34 @@ header.site-header nav .menu-toggle {
   header.site-header .header-container {
     flex-direction: row;
     justify-content: flex-start;
-    gap: 10px;
-    padding: 9px 12px;
+    min-height: 118px;
+    gap: 15px;
+    padding: 12px 16px;
     text-align: left;
   }
   header.site-header .foto-marco {
-    flex-basis: 52px;
-    width: 52px;
-    height: 52px;
+    flex: 0 0 85px;
+    width: 85px;
+    height: 85px;
+    border-width: 2px;
   }
   header.site-header .info-header h1 {
-    font-size: 1.05rem;
+    font-size: 1.35rem;
+    margin-bottom: 4px;
   }
-  header.site-header .info-header h2 {
-    font-size: .75rem;
-  }
+  header.site-header .info-header h2 { font-size: .85rem; }
   header.site-header .info-header .subtitulo {
-    display: none;
+    display: block;
+    font-size: .75rem;
+    margin-top: 4px;
   }
   header.site-header nav {
     justify-content: flex-start;
+    gap: 2px;
     margin: 0;
-    padding: 4px 8px;
+    padding: 5px 8px;
     border-top: 1px solid rgba(0,76,112,.35);
-    font-size: .84rem;
+    font-size: .85rem;
   }
   header.site-header nav a {
     display: inline-block;
@@ -170,8 +215,22 @@ header.site-header nav .menu-toggle {
     background: transparent;
     font-size: inherit;
   }
-  header.site-header nav a:hover {
-    background: #e3edf4;
-    color: #004c70;
+  main section[id] { scroll-margin-top: 175px; }
+}
+
+@media (max-width: 480px) {
+  header.site-header .header-container {
+    min-height: 98px;
+    gap: 10px;
+    padding: 10px 12px;
   }
+  header.site-header .foto-marco {
+    flex-basis: 65px;
+    width: 65px;
+    height: 65px;
+  }
+  header.site-header .info-header h1 { font-size: 1.12rem; }
+  header.site-header .info-header h2 { font-size: .74rem; }
+  header.site-header .info-header .subtitulo { display: none; }
+  main section[id] { scroll-margin-top: 145px; }
 }
