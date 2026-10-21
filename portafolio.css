@@ -122,3 +122,28 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Fotografías y diagrama reales del directorio homelab/ */
+.diagrama-imagen {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 650px;
+  object-fit: contain;
+  background: #f4f7fa;
+  border: 1px solid #e1e8ed;
+  border-radius: 6px;
+}
+.galeria figure img {
+  display: block;
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 6px;
+  background: #f4f7fa;
+}
+@media (max-width: 768px) {
+  .galeria figure img {
+    height: 160px;
+  }
+}
