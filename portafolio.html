@@ -1,133 +1,117 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Laboratorio IT de Alejandro Ros Ortiz: arquitectura, redes, seguridad, servidores y proyectos de sistemas.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Laboratorio IT de Alejandro Ros Ortiz: redes, sistemas y servicios.">
   <title>Laboratorio IT | Alejandro Ros Ortiz</title>
+  <link rel="stylesheet" href="main.css">
   <link rel="stylesheet" href="portafolio.css">
 </head>
-<body>
-<header class="site-header">
-  <div class="header-inner">
-    <a class="identity" href="index.html" aria-label="Volver a inicio"><span class="identity-mark">AR</span><span><strong>Alejandro Ros Ortiz</strong><small>Portafolio técnico</small></span></a>
-    <nav aria-label="Navegación principal">
-      <a href="index.html">Inicio</a>
-      <a href="index.html#formacion">Formación</a>
-      <a href="index.html#experiencia">Experiencia</a>
-      <a href="portafolio.html" aria-current="page">Portafolio</a>
-      <a href="contacto.html">Contacto</a>
+<body class="portfolio-page">
+  <header>
+    <div class="header-container">
+      <div class="foto-marco">
+        <img src="foto.PNG" alt="Foto de Alejandro Ros Ortiz" class="foto-perfil">
+      </div>
+      <div class="info-header">
+        <h1>Alejandro Ros Ortiz</h1>
+        <h2>Sistemas IT | Consultoría ERP | Soluciones de RRHH</h2>
+        <p class="subtitulo">Administración de sistemas y aplicaciones empresariales</p>
+      </div>
+    </div>
+    <nav>
+      <a href="index.html#sobre-mi">Sobre mí</a> |
+      <a href="index.html#formacion">Formación</a> |
+      <a href="index.html#experiencia">Experiencia</a> |
+      <a href="index.html#otros">Otros datos</a> |
+      <a href="portafolio.html" aria-current="page">Portafolio</a> |
+      <a href="contacto.html">Contacto</a> |
       <a href="cv.html">Ver CV</a>
     </nav>
-  </div>
-</header>
-<main>
-  <section class="hero">
-    <div class="hero-inner">
-      <p class="eyebrow">PROYECTO PERSONAL · INFRAESTRUCTURA IT</p>
-      <h1>Laboratorio de redes<br>y sistemas</h1>
-      <p>Diseño, despliegue y administración de infraestructura para practicar redes segmentadas, servicios Linux, virtualización y seguridad.</p>
-      <div class="hero-tags"><span>Redes</span><span>Linux y servidores</span><span>Seguridad</span><span>Monitorización</span></div>
-      <div class="hero-links"><a class="primary-link" href="#arquitectura">Ver arquitectura ↗</a><a class="secondary-link" href="#documentacion">Documentación ↓</a></div>
-    </div>
-  </section>
-  <div class="page-shell">
-    <nav class="section-nav" aria-label="Apartados del proyecto">
-      <a href="#vision">Visión general</a><a href="#arquitectura">Arquitectura</a><a href="#infraestructura">Equipamiento</a><a href="#servicios">Servicios</a><a href="#galeria">Fotografías</a><a href="#documentacion">Documentación</a>
-    </nav>
+  </header>
 
-    <section id="vision" class="section">
-      <div class="section-heading"><span class="section-number">01 / CONTEXTO</span><h2>Visión general</h2></div>
-      <div class="intro-grid">
-        <p>El laboratorio reproduce, a pequeña escala, una infraestructura de red y sistemas con equipamiento físico y máquinas virtuales. Permite configurar servicios, aplicar políticas de seguridad, comprobar resultados y documentar decisiones técnicas.</p>
-        <aside class="intro-note"><strong>Metodología</strong><span>Diseño → Despliegue → Pruebas → Documentación</span><small>Proyecto en evolución; se distinguen los servicios operativos de las ampliaciones previstas.</small></aside>
-      </div>
+  <main>
+    <section id="presentacion">
+      <h2>Laboratorio IT</h2>
+      <p>Proyecto personal de diseño y administración de una infraestructura de redes y servidores. Lo utilizo para configurar servicios, realizar pruebas y documentar soluciones en un entorno controlado.</p>
     </section>
 
-    <section id="arquitectura" class="section">
-      <div class="section-heading"><span class="section-number">02 / REDES</span><h2>Arquitectura y segmentación</h2><p>El router principal gestiona las VLAN y el tráfico entre segmentos. El switch distribuye las conexiones cableadas y la red inalámbrica ofrece acceso diferenciado por finalidad.</p></div>
-      <figure class="topology">
-        <div class="topology-summary" role="img" aria-label="Esquema lógico simplificado: Internet y router del proveedor, MikroTik RB5009, switch MikroTik CRS326 y redes de gestión, servicios, clientes y laboratorio, además de las redes proyectadas de IoT, TV e invitados.">
-          <div class="topology-node upstream">Internet <span>↓</span> Router del proveedor</div>
-          <div class="topology-arrow">↓</div>
-          <div class="topology-node router">MikroTik RB5009 <small>Gateway · Firewall · NAT</small></div>
-          <div class="topology-arrow">↓</div>
-          <div class="topology-node switch">MikroTik CRS326 <small>Conmutación y enlace troncal</small></div>
-          <div class="topology-networks">
-            <div><b>VLAN 10</b><span>Gestión</span></div><div><b>VLAN 20</b><span>Servicios</span></div><div><b>VLAN 30</b><span>Clientes</span></div><div><b>VLAN 40</b><span>Laboratorio</span></div><div><b>VLAN 50–70</b><span>Ampliaciones</span></div>
-          </div>
-        </div>
-        <figcaption>Resumen de la topología. El diagrama detallado del laboratorio se incorporará como recurso gráfico.</figcaption>
+    <section id="arquitectura">
+      <h2>Arquitectura de red</h2>
+      <p>La infraestructura utiliza un router MikroTik RB5009 como equipo principal y un switch CRS326 para distribuir las conexiones. La red está segmentada por funciones mediante VLAN y reglas de cortafuegos.</p>
+      <div class="resumen-red">Internet → Router del operador → MikroTik RB5009 → Switch CRS326 → Equipos y servicios</div>
+      <figure class="diagrama-pendiente">
+        <div class="imagen-reservada">Diagrama detallado de la red<br><code>assets/homelab/diagrama_red.png</code></div>
+        <figcaption>Espacio reservado para el diagrama de topología.</figcaption>
       </figure>
-      <div class="layout-split">
-        <div><h3>Segmentación lógica</h3><p>Separación de los equipos de administración, servicios, clientes y pruebas. Las comunicaciones entre VLAN se controlan mediante reglas de cortafuegos.</p></div>
-        <div class="table-scroll"><table>
-          <thead><tr><th>VLAN</th><th>Nombre</th><th>Subred</th><th>Finalidad</th></tr></thead>
+      <h3>Segmentación</h3>
+      <div class="tabla-red">
+        <table>
+          <thead><tr><th>VLAN</th><th>Red</th><th>Subred</th><th>Uso</th></tr></thead>
           <tbody>
-            <tr><td>10</td><td>MGMT</td><td><code>10.10.10.0/24</code></td><td>Administración</td></tr>
-            <tr><td>20</td><td>SERVICES</td><td><code>10.10.20.0/24</code></td><td>Servicios internos</td></tr>
-            <tr><td>30</td><td>CLIENTS</td><td><code>10.10.30.0/24</code></td><td>Equipos cliente</td></tr>
-            <tr><td>40</td><td>LAB</td><td><code>10.10.40.0/24</code></td><td>Pruebas</td></tr>
-            <tr><td>50</td><td>IOT</td><td><code>10.10.50.0/24</code></td><td>Ampliación prevista</td></tr>
-            <tr><td>60</td><td>TV</td><td><code>10.10.60.0/24</code></td><td>Ampliación prevista</td></tr>
-            <tr><td>70</td><td>GUEST</td><td><code>10.10.70.0/24</code></td><td>Ampliación prevista</td></tr>
+            <tr><td>10</td><td>MGMT</td><td>10.10.10.0/24</td><td>Administración</td></tr>
+            <tr><td>20</td><td>SERVICES</td><td>10.10.20.0/24</td><td>Servicios internos</td></tr>
+            <tr><td>30</td><td>CLIENTS</td><td>10.10.30.0/24</td><td>Equipos cliente</td></tr>
+            <tr><td>40</td><td>LAB</td><td>10.10.40.0/24</td><td>Pruebas</td></tr>
+            <tr><td>50</td><td>IOT</td><td>10.10.50.0/24</td><td>Ampliación prevista</td></tr>
+            <tr><td>60</td><td>TV</td><td>10.10.60.0/24</td><td>Ampliación prevista</td></tr>
+            <tr><td>70</td><td>GUEST</td><td>10.10.70.0/24</td><td>Ampliación prevista</td></tr>
           </tbody>
-        </table></div>
+        </table>
       </div>
     </section>
 
-    <section id="infraestructura" class="section">
-      <div class="section-heading"><span class="section-number">03 / EQUIPAMIENTO</span><h2>Infraestructura física</h2><p>Componentes de red y equipos de servicio que forman la base del laboratorio.</p></div>
-      <div class="feature-grid">
-        <article class="feature-card"><span class="feature-tag">ENRUTAMIENTO</span><h3>Router MikroTik RB5009</h3><p>Gateway de los segmentos internos, routing, NAT y filtrado entre redes.</p></article>
-        <article class="feature-card"><span class="feature-tag">CONMUTACIÓN</span><h3>Switch MikroTik CRS326</h3><p>Conexiones cableadas, puertos de acceso y transporte de VLAN.</p></article>
-        <article class="feature-card"><span class="feature-tag">RED INALÁMBRICA</span><h3>Puntos de acceso</h3><p>Conectividad Wi-Fi para clientes, pruebas y dispositivos asociados.</p></article>
-        <article class="feature-card"><span class="feature-tag">CÓMPUTO</span><h3>Linux, Raspberry Pi y máquinas virtuales</h3><p>Servidores ligeros y entornos virtualizados para ejecutar servicios y prácticas.</p></article>
-      </div>
+    <section id="infraestructura">
+      <h2>Equipamiento</h2>
+      <ul>
+        <li><strong>Red:</strong> MikroTik RB5009, CRS326 y puntos de acceso inalámbricos.</li>
+        <li><strong>Servidores:</strong> Raspberry Pi para servicios de red y supervisión.</li>
+        <li><strong>Virtualización:</strong> máquinas Linux y Windows en KVM.</li>
+        <li><strong>Montaje:</strong> rack de 19 pulgadas, panel de parcheo y cableado estructurado.</li>
+      </ul>
     </section>
 
-    <section id="servicios" class="section">
-      <div class="section-heading"><span class="section-number">04 / IMPLEMENTACIONES</span><h2>Servicios y prácticas</h2><p>Las tecnologías se documentan desde su finalidad, configuración y comprobaciones.</p></div>
-      <div class="service-grid">
-        <article class="service-card"><span class="service-index">01</span><h3>Redes y seguridad</h3><p>Segmentación, routing y control del tráfico mediante políticas de cortafuegos.</p></article>
-        <article class="service-card"><span class="service-index">02</span><h3>Servicios de red</h3><p>DNS local, filtrado de dominios, DHCP y sincronización horaria.</p></article>
-        <article class="service-card"><span class="service-index">03</span><h3>Monitorización</h3><p>Métricas de sistemas, supervisión de disponibilidad y paneles de observabilidad.</p></article>
-        <article class="service-card"><span class="service-index">04</span><h3>Virtualización</h3><p>Entornos Linux y Windows virtualizados para practicar administración de sistemas.</p></article>
-      </div>
+    <section id="servicios">
+      <h2>Servicios y prácticas</h2>
+      <ul>
+        <li><strong>Redes y seguridad:</strong> VLAN, routing, NAT y reglas de cortafuegos.</li>
+        <li><strong>DNS y tiempo:</strong> Pi-hole, Unbound y sincronización NTP.</li>
+        <li><strong>Monitorización:</strong> Prometheus, Grafana y Uptime Kuma.</li>
+        <li><strong>Sistemas:</strong> administración Linux y Windows en entornos virtualizados.</li>
+      </ul>
+      <p><strong>Pendiente:</strong> VPN, DDNS y ampliación de la recogida de métricas y registros.</p>
     </section>
 
-    <section id="galeria" class="section">
-      <div class="section-heading"><span class="section-number">05 / FOTOGRAFÍAS</span><h2>Galería del laboratorio</h2><p>Espacios reservados para las imágenes reales. Añade los archivos en <code>assets/homelab/</code> con los nombres indicados.</p></div>
-      <div class="photo-grid">
-        <figure class="photo-card"><div class="photo-frame"><div class="photo-fallback"><b>Vista frontal del rack</b><code>foto_frente.jpg</code></div><img src="assets/homelab/foto_frente.jpg" alt="Vista frontal del rack" loading="lazy"></div><figcaption>Vista general</figcaption></figure>
-        <figure class="photo-card"><div class="photo-frame"><div class="photo-fallback"><b>Switch</b><code>foto_switch.jpg</code></div><img src="assets/homelab/foto_switch.jpg" alt="Switch CRS326" loading="lazy"></div><figcaption>Conmutación y cableado</figcaption></figure>
-        <figure class="photo-card"><div class="photo-frame"><div class="photo-fallback"><b>Router principal</b><code>foto_routermikrotik.jpg</code></div><img src="assets/homelab/foto_routermikrotik.jpg" alt="Router MikroTik RB5009" loading="lazy"></div><figcaption>Routing y seguridad</figcaption></figure>
-        <figure class="photo-card"><div class="photo-frame"><div class="photo-fallback"><b>Raspberry Pi</b><code>foto_raspberry.jpg</code></div><img src="assets/homelab/foto_raspberry.jpg" alt="Servidores Raspberry Pi" loading="lazy"></div><figcaption>Servicios Linux</figcaption></figure>
-        <figure class="photo-card"><div class="photo-frame"><div class="photo-fallback"><b>Punto de acceso</b><code>foto_punto_acceso.jpg</code></div><img src="assets/homelab/foto_punto_acceso.jpg" alt="Punto de acceso inalámbrico" loading="lazy"></div><figcaption>Red inalámbrica</figcaption></figure>
-        <figure class="photo-card"><div class="photo-frame"><div class="photo-fallback"><b>Monitorización</b><code>foto_monitorizacion.jpg</code></div><img src="assets/homelab/foto_monitorizacion.jpg" alt="Panel de monitorización" loading="lazy"></div><figcaption>Supervisión de infraestructura</figcaption></figure>
+    <section id="fotografias">
+      <h2>Fotografías</h2>
+      <p>Las fotografías reales se incorporarán a medida que se complete la documentación.</p>
+      <div class="galeria">
+        <figure><div class="imagen-reservada">foto_frente.jpg</div><figcaption>Vista frontal del rack</figcaption></figure>
+        <figure><div class="imagen-reservada">foto_switch.jpg</div><figcaption>Switch y cableado</figcaption></figure>
+        <figure><div class="imagen-reservada">foto_routermikrotik.jpg</div><figcaption>Router RB5009</figcaption></figure>
+        <figure><div class="imagen-reservada">foto_raspberry.jpg</div><figcaption>Servidores Raspberry Pi</figcaption></figure>
+        <figure><div class="imagen-reservada">foto_punto_acceso.jpg</div><figcaption>Red inalámbrica</figcaption></figure>
+        <figure><div class="imagen-reservada">foto_monitorizacion.jpg</div><figcaption>Monitorización</figcaption></figure>
       </div>
+      <p class="nota">Ruta prevista: <code>assets/homelab/</code>.</p>
     </section>
 
-    <section id="documentacion" class="section">
-      <div class="section-heading"><span class="section-number">06 / DOCUMENTACIÓN</span><h2>Documentación técnica</h2><p>Se incorporarán procedimientos, configuraciones y evidencias de las pruebas realizadas.</p></div>
-      <div class="docs-grid">
-        <article class="doc-card"><span class="doc-number">DOC / 01</span><h3>Diseño de red y VLAN</h3><p>Topología, direccionamiento, segmentación y políticas de comunicación.</p><span class="doc-state">Pendiente de publicación</span></article>
-        <article class="doc-card"><span class="doc-number">DOC / 02</span><h3>DNS y servicios internos</h3><p>Despliegue de servicios y verificaciones de funcionamiento.</p><span class="doc-state">Pendiente de publicación</span></article>
-        <article class="doc-card"><span class="doc-number">DOC / 03</span><h3>Observabilidad</h3><p>Métricas, registros y seguimiento del estado de los sistemas.</p><span class="doc-state">Pendiente de publicación</span></article>
-        <article class="doc-card"><span class="doc-number">DOC / 04</span><h3>Virtualización y pruebas</h3><p>Máquinas virtuales y prácticas de administración.</p><span class="doc-state">Pendiente de publicación</span></article>
-      </div>
-      <div class="next-steps"><div><span class="section-number">EN EVOLUCIÓN</span><h3>Próximas ampliaciones</h3></div><p>Acceso remoto mediante VPN, DDNS, centralización de registros y ampliación de la monitorización de dispositivos de red.</p></div>
+    <section id="documentacion">
+      <h2>Documentación técnica</h2>
+      <p>Este apartado reunirá las configuraciones, decisiones de diseño y pruebas realizadas.</p>
+      <ul>
+        <li>Diseño de red, direccionamiento y políticas de acceso.</li>
+        <li>Instalación y configuración de servicios.</li>
+        <li>Monitorización y resolución de incidencias.</li>
+        <li>Virtualización y prácticas de sistemas.</li>
+      </ul>
+      <p class="nota">Documentación en preparación.</p>
     </section>
-  </div>
-</main>
-<footer class="site-footer"><div><span>© 2026 Alejandro Ros Ortiz</span><a href="index.html">Volver al inicio ↑</a></div></footer>
-<script>
-document.querySelectorAll('.photo-frame img').forEach((img) => {
-  const markLoaded = () => img.closest('.photo-frame').classList.add('has-photo');
-  img.addEventListener('load', markLoaded);
-  img.addEventListener('error', () => img.remove());
-  if (img.complete && img.naturalWidth > 0) markLoaded();
-});
-</script>
+  </main>
+
+  <footer>
+    <p>© 2026 Alejandro Ros Ortiz</p>
+  </footer>
 </body>
 </html>
