@@ -249,3 +249,23 @@ main section[id] {
     padding-bottom: 30px;
   }
 }
+
+/* Distribución vertical de Contacto: tarjetas arriba y pie al fondo
+   del viewport cuando el contenido no alcanza toda la altura. */
+body.contacto-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+body.contacto-page > .site-header,
+body.contacto-page > footer {
+  flex-shrink: 0;
+}
+body.contacto-page > .contacto-main {
+  flex: 1 0 auto;
+  min-height: 0;
+}
+body.contacto-page > footer {
+  margin-top: auto;
+}
