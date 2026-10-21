@@ -234,3 +234,18 @@ main section[id] {
   header.site-header .info-header .subtitulo { display: none; }
   main section[id] { scroll-margin-top: 145px; }
 }
+
+/* Contacto: evitar el centrado vertical que crea un gran hueco
+   entre el menú de navegación y la primera tarjeta. */
+.contacto-main {
+  justify-content: flex-start;
+  min-height: 0;
+  padding-top: 28px;
+  padding-bottom: 48px;
+}
+@media (max-width: 768px) {
+  .contacto-main {
+    padding-top: 18px;
+    padding-bottom: 30px;
+  }
+}
